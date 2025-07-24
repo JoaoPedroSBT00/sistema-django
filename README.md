@@ -9,6 +9,8 @@ Este projeto tem como foco proporcionar uma plataforma simples e funcional para 
   - GUSTAVO ROBERTO SOU BERNARDO </br>
   - MARIA FERNANDA BARBOSA FIRMO
 
+---
+
 ## 🧩 Objetivo do Projeto
 
 Desenvolver um sistema web que permita:
