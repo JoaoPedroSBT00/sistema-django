@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Lista de materias</h1>
-    <a href="/depto/adicionar/" class="btn btn-success mb-3"> Adicionar Materia</a>
+    <a href="materias/Adicionar" class="btn btn-success mb-3"> Adicionar Materia</a>
 
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
@@ -18,9 +18,9 @@
           </tr>
         </thead>
         <tbody>
-          {% for materia in materias %}
+          {% for Materia in materias %}
           <tr>
-            <td>{{ depto.nome }}</td>
+            <td>{{ materia.nome }}</td>
             <td><a href="/materia/{{  materia.id }}/" class="btn btn-info btn-sm">Detalhe</a></td>
             <td><a href="/materia/editar/{{ materia.id }}/" class="btn btn-warning btn-sm">Editar</a></td>
             <td><a href="/materia/remover/{{ materia.id }}/" class="btn btn-danger btn-sm">Excluir</a></td>

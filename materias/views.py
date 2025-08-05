@@ -5,7 +5,7 @@ from .forms import MateriaForm
 
 def index(request):
 
-    materias = Materia.objects.all() .order_by('nome')
+    Materia = Materia.objects.all() .order_by('nome')
     return render(request, 'materia/index.html', {'materia': materias})
 
 def add(request):
@@ -32,7 +32,7 @@ def edit(request, id_materia):
 def delete(request, id_materia):
     materia = Materia.objects.get(id=id_materia)
     if request.method == 'POST':
-        materia.delete()
+        Materia.delete()
         return redirect('index')
     return render(request, 'materias/remover.html', {'materia': materia})
 
