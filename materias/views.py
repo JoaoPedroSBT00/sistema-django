@@ -5,8 +5,8 @@ from .forms import MateriaForm
 
 def index(request):
 
-    Materia = Materia.objects.all() .order_by('nome')
-    return render(request, 'materia/index.html', {'materia': materias})
+    materias = Materia.objects.all() .order_by('nome')
+    return render(request, 'materias/index.html', {'materias': materias})
 
 def add(request):
     if request.method == 'POST':
@@ -16,24 +16,29 @@ def add(request):
             return redirect('index')
     else:
         form = MateriaForm()
-    return render(request, 'materia/adicionar.html', {'form': form})
+    return render(request, 'materias/adicionar.html', {'form': form})
 
 def edit(request, id_materia):
-    materia = Materia.objects.get(id=id_materia)
+    materias = Materia.objects.get(id=id_materia)
     if request.method == 'POST':
-        form = MateriaForm(request.POST, instance=materia)
+        form = MateriaForm(request.POST, instance=materias)
         if form.is_valid():
             form.save()
             return redirect('index')
     else:
-        form = MateriaForm(instance=materia)
-    return render(request, 'materia/editar.html', {'form': form, 'materia': materia})
+        form = MateriaForm(instance=materias)
+    return render(request, 'materias/editar.html', {'form': form, 'materias': materias})
 
 def delete(request, id_materia):
-    materia = Materia.objects.get(id=id_materia)
-    if request.method == 'POST':
-        Materia.delete()
+    materias = Materia.objects.get(id=id_materia)
+    if request.method == 'GET':
+        materias.delete()
         return redirect('index')
-    return render(request, 'materias/remover.html', {'materia': materia})
+    return render(request, 'materias/remover.html', {'materias': materias})
+
+def detalhe(request, id_materia):
+    materias = Materia.objects.get(id=id_materia)
+
+    return render(request, 'materias/detalhe.html', {'materias': materias})
 
 

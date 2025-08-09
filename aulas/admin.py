@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import aulas
+from .models import Aula
 
-admin.site.register(aulas)
+admin.site.register(Aula)

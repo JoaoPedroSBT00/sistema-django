@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index aulas</title>
+</head>
+<body>
+    <h1>Lista de materias</h1>
+    <a href="/aulas/adicionar" class="btn btn-success mb-3"> Adicionar aula</a>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Aula</th>
+            <th colspan="3" class="text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for aula in aulas %}
+          <tr>
+            <td>{{ aula.conteudo }}</td>
+            <td><a href="/aulas/{{ aula.id }}/" class="btn btn-info btn-sm">Detalhe</a></td>
+            <td><a href="/aulas/editar/{{ aula.id }}/" class="btn btn-warning btn-sm">Editar</a></td>
+            <td><a href="/aulas/remover/{{ aula.id }}/" class="btn btn-danger btn-sm">Excluir</a></td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" class="text-center">Nenhuma aula cadastrada.</td>
+          </tr>
+          {% endfor %}
+</body>
+</html>
