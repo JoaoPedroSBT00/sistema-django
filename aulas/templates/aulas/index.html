@@ -6,14 +6,15 @@
     <title>Index aulas</title>
 </head>
 <body>
-    <h1>Lista de materias</h1>
+    <h1>Lista de aulas</h1>
     <a href="/aulas/adicionar" class="btn btn-success mb-3"> Adicionar aula</a>
 
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead class="table-dark">
           <tr>
-            <th>Aula</th>
+            <th>Conteúdo</th>
+            <th>Carga horária</th>
             <th colspan="3" class="text-center">Ações</th>
           </tr>
         </thead>
@@ -21,6 +22,7 @@
           {% for aula in aulas %}
           <tr>
             <td>{{ aula.conteudo }}</td>
+            <td>{{ aula.duracao }} Horas</td>
             <td><a href="/aulas/{{ aula.id }}/" class="btn btn-info btn-sm">Detalhe</a></td>
             <td><a href="/aulas/editar/{{ aula.id }}/" class="btn btn-warning btn-sm">Editar</a></td>
             <td><a href="/aulas/remover/{{ aula.id }}/" class="btn btn-danger btn-sm">Excluir</a></td>

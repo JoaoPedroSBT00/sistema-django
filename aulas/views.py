@@ -24,7 +24,7 @@ def edit(request, id_aula):
         form = AulaForm(request.POST, instance=aulas)
         if form.is_valid():
             form.save()
-            return redirect('aulas/index.html')
+            return redirect('aulas_index')
     else:
         form = AulaForm(instance=aulas)
     return render(request, 'aulas/editar.html', {'form': form, 'aulas': aulas})
@@ -33,11 +33,11 @@ def delete(request, id_aula):
     aulas = Aula.objects.get(id=id_aula)
     if request.method == 'GET':
         aulas.delete()
-        return redirect('aulas/index.html')
+        return redirect('aulas_index')
     return render(request, 'aulas/remover.html', {'aulas': aulas})
 
 def detalhe(request, id_aula):
-    Aulas = Aula.objects.get(id=id_aula)
+    aulas = Aula.objects.get(id=id_aula)
 
     return render(request, 'aulas/detalhe.html', {'aulas': aulas})
 

@@ -10,7 +10,7 @@ urlpatterns = [
     #livros
     path("livros/", include("livros.urls")),
     #materias
-    path('materia/', materias_views.index, name='index'),
+    path('materias/', materias_views.index, name='index'),
     path('materias/adicionar/', materias_views.add, name='add'),
     path('materias/editar/<int:id_materia>/', materias_views.edit, name='edit'),
     path('materias/remover/<int:id_materia>/', materias_views.delete, name='delete'),
