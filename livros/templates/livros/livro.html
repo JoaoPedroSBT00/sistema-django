@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro</title>
+</head>
+<body>
+    <h1>Lista de Livros</h1>
+    <a href="/livros/criar_livro" class="btn btn-success mb-3"> Adicionar Livro</a>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Livro</th>
+            <th colspan="3" class="text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for livros in livro %}
+          <tr>
+            <td>{{ livros.titulo }}</td>
+            <td><a href="/livros/{{ livros.id }}/" class="btn btn-info btn-sm">Detalhe</a></td>
+            <td><a href="/livros/editar/{{ livros.id }}/" class="btn btn-warning btn-sm">Editar</a></td>
+            <td><a href="/livros/remover/{{ livros.id }}/" class="btn btn-danger btn-sm">Excluir</a></td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" class="text-center">Nenhum livro ainda!.</td>
+          </tr>
+          {% endfor %}
+          <a href="/">Home</a>
+</body>
+</html>
