@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Remover Professor</title>
+</head>
+<body>
+    <h1>Remover Professor</h1>
+    <p>Tem certeza que deseja remover o professor <strong><!--nome do professor--></strong>?</p>
+    <form action="/professor/remover" method="POST">
+        <input type="hidden" name="id" value="<!--id do professor-->" />
+        <button type="submit">Confirmar remoção</button>
+    </form>
+    <a href="index.html">Cancelar</a>
+</body>
+</html>

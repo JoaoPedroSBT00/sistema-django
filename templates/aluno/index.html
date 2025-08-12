@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Aulas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Minhas Aulas</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Conteúdo</th>
+                        <th>Carga Horária</th>
+                        <th>Progresso</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aula in aulas %}
+                    <tr>
+                        <td>{{ aula.conteudo }}</td>
+                        <td>{{ aula.duracao }} Horas</td>
+                        <td>
+                            <div class="progress" style="height: 20px;">
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                     style="width: {{ aula.progresso }}%;" 
+                                     aria-valuenow="{{ aula.progresso }}" aria-valuemin="0" aria-valuemax="100">
+                                    {{ aula.progresso }}%
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <a href="/aulas/{{ aula.id }}/assistir" class="btn btn-success btn-sm">Assistir</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center">Nenhuma aula disponível no momento.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
