@@ -7,6 +7,7 @@ from aulas import views as aulas_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', livros_views.home, name='home'),
+    path('templates/extrapages/cursospage/', livros_views.cursopages, name='cursospage'),
     #livros
     path("livros/", include("livros.urls")),
     #materias
